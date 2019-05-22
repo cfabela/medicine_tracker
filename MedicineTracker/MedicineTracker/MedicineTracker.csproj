@@ -16,5 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="Database\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>
