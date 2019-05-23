@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 
 using MedicineTracker.Services;
+using MedicineTracker.ViewModels;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(NavigationService))]
@@ -28,7 +29,7 @@ namespace MedicineTracker.Services
         }
 
         //Navigates navigates to a specific ViewModel
-        public async Task NavifateTo<TVM>()
+        public async Task NavigateTo<TVM>()
             where TVM : BaseViewModel
         {
             await NavigateToView(typeof(TVM));
@@ -52,13 +53,5 @@ namespace MedicineTracker.Services
             var view = constructor.Invoke(null) as Page;
             await XFNavigation.PushAsync(view, true);
         }
-
-
-
-
-
-
-
-
     }
 }

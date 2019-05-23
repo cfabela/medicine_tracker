@@ -1,6 +1,8 @@
 ﻿using System;
+using MedicineTracker.Models;
+using MedicineTracker.Services;
+using MedicineTracker.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MedicineTracker
 {
@@ -8,10 +10,23 @@ namespace MedicineTracker
     {
         public App()
         {
-            InitializeComponent();
+            //The root page of our application
+            var mainPage = new NavigationPage(new MedicinelistPage());
 
-            MainPage = new MainPage();
+            //Create an instance of our NavigationService service
+            var navService = DependencyService.Get<INavigationService>() as NavigationService;
+
+            //Assign the main page to our navigation service
+            navService.XFNavigation = mainPage.Navigation;
+
+            //Register each of our View Models on our Navigation Stack
+            navService.RegisterViewMapping(typeof(MedicineListPageViewModel), typeof(MedicineListPage));
+            navService.RegisterViewMapping(typeof(EditMedicineItemPageViewModel), typeof(EditMedicineItemPage));
+
+            MainPage = mainPage;
         }
+
+        public static MedicineItem SelectedItem { get; set; }
 
         protected override void OnStart()
         {

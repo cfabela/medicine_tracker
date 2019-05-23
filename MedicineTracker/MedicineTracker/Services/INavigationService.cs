@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using MedicineTracker.ViewModels;
 using Xamarin.Forms;
 
 namespace MedicineTracker.Services
@@ -11,7 +12,7 @@ namespace MedicineTracker.Services
         Task<Page> RemoveViewFromStack();
 
         //Navigate to a particular ViewModel within out MVVM Model
-        Task NaviateTo<TVM>()
+        Task NavigateTo<TVM>()
             where TVM : BaseViewModel;
     }
 }

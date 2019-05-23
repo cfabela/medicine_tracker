@@ -9,11 +9,11 @@ namespace MedicineTracker.ViewModels
     {
         public EditMedicineItemPageViewModel(INavigationService navService) : base(navService)
         {
-            if(App.SelectdItem == null)
+            if(App.SelectedItem == null)
             {
                 Title = "Adding Medicine Details";
                 App.SelectedItem = new MedicineItem();
-                DateDoseToken = DateTime.Now;
+                DateDoseTaken = DateTime.Now;
             }
             else
             {
@@ -25,7 +25,7 @@ namespace MedicineTracker.ViewModels
         public bool Save()
         {
             if(App.SelectedItem != null && !string.IsNullOrEmpty(App.SelectedItem.BrandName) &&
-                !string.IsNullOrEmpty(App.SelectedItem.Desription))
+                !string.IsNullOrEmpty(App.SelectedItem.Description))
             {
                 new Database.Database().SaveItem(App.SelectedItem);
             }
@@ -50,7 +50,7 @@ namespace MedicineTracker.ViewModels
 
         public string Description
         {
-            get { return App.SelectedItem.Desxription; }
+            get { return App.SelectedItem.Description; }
             set { App.SelectedItem.Description = value;  OnPropertyChanged(); }
         }
 
@@ -74,7 +74,7 @@ namespace MedicineTracker.ViewModels
 
         public TimeSpan TimeDoseTaken
         {
-            get { return App.Selecteditem.TimeDoseTaken; }
+            get { return App.SelectedItem.TimeDoseTaken; }
             set { App.SelectedItem.TimeDoseTaken = value;  OnPropertyChanged(); }
         }
 
