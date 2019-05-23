@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using MedicineTracker.Database;
 using MedicineTracker.Models;
 
 using SQLite;
 
 using Xamarin.Forms;
 
-namespace MedicineTracker.Droid.Database
+namespace MedicineTracker.Database
 {
     public class Database
     {
@@ -46,7 +45,7 @@ namespace MedicineTracker.Droid.Database
         {
             lock (locker)
             {
-                if(item.Id != 0)
+                if (item.Id != 0)
                 {
                     database.Update(item);
                     return item.Id;
