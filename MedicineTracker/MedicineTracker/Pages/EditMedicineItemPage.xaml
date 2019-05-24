@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedicineTracker.Pages.EditMedicineItemPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <TableView HasUnevenRows="true">
+                <TableView.Root>
+                    <TableSection Title="Medicine Details">
+                        <EntryCell Label="Brand Name:" Text="{Binding BrandName, Mode=TwoWay}" />
+                        <EntryCell Label="Description:" Text="{Binding Description, Mode=TwoWay}" />
+                        <EntryCell Label="Side Effects:" Text="{Binding SideEffects, Mode=TwoWay}" />
+                    </TableSection>
+                    <TableSection Title="Dosage Details">
+                        <EntryCell Label="Dosage:" Text="{Binding Dosage, Mode=TwoWay}" />
+                        <ViewCell>
+                            <StackLayout Padding="20,0,0,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Label Text="Date Dose Taken:" HorizontalOptions="Fill" YAlign="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Padding="20,0,0,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Label Text="Time Dose Taken:" HorizontalOptions="Fill" YAlign="Center"/>
+                                <TimePicker Time="{Binding TimeDoseTaken, Mode=TwoWay}" HorizontalOptions="FillAndExpand" TextColor="Red" />
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableView.Root>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
