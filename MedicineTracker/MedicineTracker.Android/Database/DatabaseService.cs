@@ -24,22 +24,6 @@ namespace MedicineTracker.Droid.Database
             string documentsDirectoryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var path = Path.Combine(documentsDirectoryPath, sqliteFilename);
 
-            if (!File.Exists(path))
-            {
-                using(var binaryReader = new BinaryReader(Android.App.Application.Context.Assets.Open(sqliteFilename)))
-                {
-                    using (var binaryWriter = new BinaryWriter(new FileStream(path, FileMode.Create)))
-                    {
-                        byte[] buffer = new byte[2048];
-                        int lenght = 0;
-                        while((lenght = binaryReader.Read(buffer, 0, buffer.Length)) > 0)
-                        {
-                            binaryWriter.Write(buffer, 0, lenght);
-                        }
-                    }
-                }
-            }
-
             var conn = new SQLiteConnection(path);
             return conn;
         }
