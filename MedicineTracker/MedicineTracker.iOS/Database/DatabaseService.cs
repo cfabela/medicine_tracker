@@ -23,7 +23,7 @@ namespace MedicineTracker.iOS.Database
         {
             var sqliteFilename = "MedicineTracker.db";
             string docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string libFolder = Path.Combine(docFolder, "..", "Library", "Databases");
+            string libFolder = Path.Combine(docFolder, "..", "Library");
 
             if (!Directory.Exists(libFolder))
             {
@@ -31,11 +31,7 @@ namespace MedicineTracker.iOS.Database
             }
 
             string path = Path.Combine(libFolder, sqliteFilename);
-
-            if (!File.Exists(path)){
-                var existingDb = NSBundle.MainBundle.PathForResource("MedicineTracker", "db");
-                File.Copy(existingDb, path);
-            }
+            System.Diagnostics.Debug.WriteLine(path);
 
             var connection = new SQLiteConnection(path);
             return connection;

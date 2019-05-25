@@ -1,5 +1,6 @@
 ﻿using System;
 using MedicineTracker.Models;
+using MedicineTracker.Pages;
 using MedicineTracker.Services;
 using MedicineTracker.ViewModels;
 using Xamarin.Forms;
@@ -11,7 +12,7 @@ namespace MedicineTracker
         public App()
         {
             //The root page of our application
-            var mainPage = new NavigationPage(new MedicinelistPage());
+            var mainPage = new NavigationPage(new MedicineListPage());
 
             //Create an instance of our NavigationService service
             var navService = DependencyService.Get<INavigationService>() as NavigationService;

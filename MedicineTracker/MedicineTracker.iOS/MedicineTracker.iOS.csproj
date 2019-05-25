@@ -141,4 +141,9 @@
   <ItemGroup>
     <Folder Include="Database\" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\syringe.png" />
+    <BundleResource Include="Resources\doctor-with-stethoscope.png" />
+    <BundleResource Include="Resources\medicines.png" />
+  </ItemGroup>
 </Project>

@@ -7,6 +7,11 @@
             <TableView HasUnevenRows="true">
                 <TableView.Root>
                     <TableSection Title="Medicine Details">
+                        <ViewCell>
+                            <StackLayout Padding="20,0,0,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <Image Aspect="AspectFit" Source="syringe.png" WidthRequest="70" HeightRequest="70" VerticalOptions="FillAndExpand" />
+                            </StackLayout>
+                        </ViewCell>
                         <EntryCell Label="Brand Name:" Text="{Binding BrandName, Mode=TwoWay}" />
                         <EntryCell Label="Description:" Text="{Binding Description, Mode=TwoWay}" />
                         <EntryCell Label="Side Effects:" Text="{Binding SideEffects, Mode=TwoWay}" />
@@ -16,6 +21,7 @@
                         <ViewCell>
                             <StackLayout Padding="20,0,0,0" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                 <Label Text="Date Dose Taken:" HorizontalOptions="Fill" YAlign="Center"/>
+                                <DatePicker Date="{Binding DateDoseTaken, Mode=TwoWay}" Format="dd-MM-yyyy" HorizontalOptions="FillAndExpand" TextColor="Green"/>
                             </StackLayout>
                         </ViewCell>
                         <ViewCell>
